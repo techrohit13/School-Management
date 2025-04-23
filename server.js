@@ -68,6 +68,69 @@ app.get('/listSchools', (req, res) => {
   });
 });
 
+// Basic Info route
+app.get('/', (req, res) => {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>School Management API Documentation</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+          }
+          h1, h2 {
+            color: #333;
+          }
+          p {
+            font-size: 16px;
+          }
+          ul {
+            list-style-type: none;
+            padding-left: 0;
+          }
+          li {
+            margin-bottom: 10px;
+          }
+          code {
+            display: block;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 5px;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Welcome to the School Management API Documentation</h1>
+        <p>Hi there, this is Rohit Chaudhary. I have implemented the given task and the endpoints for the API are provided below.</p>
+
+        <h2>API Endpoints</h2>
+        <ul>
+          <li>
+            <h3>Add School API</h3>
+            <p><strong>Endpoint:</strong> /addSchool</p>
+            <p><strong>Method:</strong> POST</p>
+            <p><strong>URL:</strong> <code>https://school-management-phi-jet.vercel.app/addSchool</code></p>
+          </li>
+          <li>
+            <h3>List Schools API</h3>
+            <p><strong>Endpoint:</strong> /listSchools</p>
+            <p><strong>Method:</strong> GET</p>
+            <p><strong>URL:</strong> <code>http://school-management-phi-jet.vercel.app/listSchools?latitude=50&longitude=40</code></p>
+          </li>
+        </ul>
+      </body>
+    </html>
+  `;
+
+  res.send(htmlContent);
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
